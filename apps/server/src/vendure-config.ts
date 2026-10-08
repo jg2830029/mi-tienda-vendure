@@ -85,13 +85,14 @@ export const config: VendureConfig = {
         }),
         
 
-        AdminUiPlugin.init({
-            route: 'admin',
-            port: serverPort,
-            adminUiConfig: {
-                apiHost: 'https://mi-tienda-vendure-production.up.railway.app',
-                adminApiPath: 'admin-api',
-            },
-        }),
+       AdminUiPlugin.init({
+    route: 'admin',
+    port: serverPort,
+    adminUiConfig: {
+        apiHost: 'https://mi-tienda-vendure-production.up.railway.app',
+        apiPort: 443,
+        adminApiPath: 'admin-api',
+    },
+}),
     ],
 };
