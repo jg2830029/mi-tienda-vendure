@@ -18,5 +18,8 @@
   },
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "dependencies": {
+    "mysql2": "^3.24.5"
+  }
 }
