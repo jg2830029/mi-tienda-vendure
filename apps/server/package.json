@@ -16,6 +16,7 @@
     "start": "vendure start all"
   },
   "dependencies": {
+    "@vendure/admin-ui-plugin": "^3.7.4",
     "@vendure/asset-server-plugin": "3.7.4",
     "@vendure/core": "3.7.4",
     "@vendure/dashboard": "3.7.4",

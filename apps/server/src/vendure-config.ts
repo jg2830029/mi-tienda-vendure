@@ -7,7 +7,7 @@ import {
 } from '@vendure/core';
 import { defaultEmailHandlers, EmailPlugin, FileBasedTemplateLoader } from '@vendure/email-plugin';
 import { AssetServerPlugin } from '@vendure/asset-server-plugin';
-import { DashboardPlugin } from '@vendure/dashboard/plugin';
+import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
 import { GraphiqlPlugin } from '@vendure/graphiql-plugin';
 import 'dotenv/config';
 import path from 'path';
@@ -37,7 +37,7 @@ export const config: VendureConfig = {
             password: process.env.SUPERADMIN_PASSWORD || 'admin123',
         },
         cookieOptions: {
-          secret: process.env.COOKIE_SECRET || 'secreto_super_seguro_123',
+            secret: process.env.COOKIE_SECRET || 'secreto_super_seguro_123',
         },
     },
     dbConnectionOptions: {
@@ -77,11 +77,9 @@ export const config: VendureConfig = {
                 changeEmailAddressUrl: 'http://localhost:3002/account/verify-email'
             },
         }),
-        DashboardPlugin.init({
-            route: 'dashboard',
-            appDir: IS_DEV
-                ? path.join(__dirname, '../dist/dashboard')
-                : path.join(__dirname, 'dashboard'),
+        AdminUiPlugin.init({
+            route: 'admin',
+            port: serverPort,
         }),
     ],
 };
