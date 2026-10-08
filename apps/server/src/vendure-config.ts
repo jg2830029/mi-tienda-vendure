@@ -13,7 +13,7 @@ import 'dotenv/config';
 import path from 'path';
 
 const IS_DEV = process.env.APP_ENV === 'dev';
-const serverPort = +process.env.PORT || +process.env.VENDURE_SERVER_PORT || 3000;
+const serverPort = parseInt(process.env.PORT || process.env.VENDURE_SERVER_PORT || '3000', 10);
 
 export const config: VendureConfig = {
     apiOptions: {
@@ -46,15 +46,15 @@ export const config: VendureConfig = {
         logging: false,
         database: process.env.DB_NAME,
         host: process.env.DB_HOST,
-        port: +process.env.DB_PORT || 3306,
+        port: +(process.env.DB_PORT || 3306),
         username: process.env.DB_USERNAME,
         password: process.env.DB_PASSWORD,
-       extra: {
-    connectionLimit: 5,
-    connectTimeout: 60000,
-    enableKeepAlive: true,
-    keepAliveInitialDelay: 10000,
-},
+        extra: {
+            connectionLimit: 5,
+            connectTimeout: 60000,
+            enableKeepAlive: true,
+            keepAliveInitialDelay: 10000,
+        },
     },
     paymentOptions: {
         paymentMethodHandlers: [dummyPaymentHandler],
@@ -83,13 +83,8 @@ export const config: VendureConfig = {
                 changeEmailAddressUrl: 'http://localhost:3002/account/verify-email'
             },
         }),
-       AdminUiPlugin.init({
-    route: 'admin',
-    port: serverPort,
-    adminUiConfig: {
-        apiHost: 'https://mi-tienda-vendure-production.up.railway.app',
-        adminApiPath: 'admin-api',
-    },
-}),
+        AdminUiPlugin.init({
+            route: 'admin',
+        } as any),
     ],
 };
