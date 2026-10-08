@@ -85,12 +85,12 @@ export const config: VendureConfig = {
                 changeEmailAddressUrl: 'http://localhost:3002/account/verify-email'
             },
         }),
-        AdminUiPlugin.init({
+       AdminUiPlugin.init({
             route: 'admin',
             port: serverPort,
             adminUiConfig: {
                 apiHost: 'https://mi-tienda-vendure-production.up.railway.app',
-                apiPort: 443,
+                apiPort: undefined,
                 adminApiPath: 'admin-api',
             },
         }),
