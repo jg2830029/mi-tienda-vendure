@@ -89,7 +89,8 @@ export const config: VendureConfig = {
             route: 'admin',
             port: serverPort,
             adminUiConfig: {
-                apiHost: 'auto',
+                apiHost: 'https://mi-tienda-vendure-production.up.railway.app',
+                apiPort: 443,
                 adminApiPath: 'admin-api',
             },
         }),
