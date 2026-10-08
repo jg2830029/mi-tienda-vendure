@@ -49,6 +49,14 @@ export const config: VendureConfig = {
         port: +process.env.DB_PORT || 3306,
         username: process.env.DB_USERNAME,
         password: process.env.DB_PASSWORD,
+        extra: {
+            connectionLimit: 10,
+            connectTimeout: 60000,
+            acquireTimeout: 60000,
+            timeout: 60000,
+            enableKeepAlive: true,
+            keepAliveInitialDelay: 10000,
+        },
     },
     paymentOptions: {
         paymentMethodHandlers: [dummyPaymentHandler],
