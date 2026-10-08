@@ -42,7 +42,7 @@ export const config: VendureConfig = {
     },
     dbConnectionOptions: {
         type: 'mysql',
-        synchronize: true,
+        synchronize: false,
         logging: false,
         database: process.env.DB_NAME,
         host: process.env.DB_HOST,
